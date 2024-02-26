@@ -222,7 +222,6 @@ def pregunta_13():
     return tbl0.merge(tbl2, on="_c0").groupby("_c1")["_c5b"].sum().rename("_c5b")
 
 
-"""
 print(pregunta_01())
 print(pregunta_02())
 print(pregunta_03())
@@ -236,4 +235,4 @@ print(pregunta_10())
 print(pregunta_11())
 print(pregunta_12())
 print(pregunta_13())
-"""
+#a
