@@ -164,8 +164,11 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return tbl0.groupby("_c1")["_c2"].apply(lambda x: ":".join(x.sort_values().astype(str))).reset_index()#.rename(columns={"_c2":"_c1", "_c1":"_c0"})
-
+    #return tbl0.groupby("_c1")["_c2"].apply(lambda x: ":".join(x.sort_values().astype(str))).reset_index()#.rename(columns={"_c2":"_c1", "_c1":"_c0"})
+    tbl0_pivot = tbl0.pivot_table(
+        index="_c1", values="_c2", aggfunc=lambda x: ":".join(sorted(x.astype(str)))
+    )
+    return tbl0_pivot 
 
 def pregunta_11():
     """
